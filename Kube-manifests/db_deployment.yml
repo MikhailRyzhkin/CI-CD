@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-dep
+  labels:
+    k8s-app: app-dpdt
+    gitlab: diplom
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+        - name: db-dep
+          image: postgres:13-alpine
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: credentials
+                  key: POSTGRES_USER
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: credentials
+                  key: POSTGRES_PASSWORD
+
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: credentials
+                  key: POSTGRES_DB
+
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: pg-data-mount
+              mountPath: /var/lib/postgresql/data
+
+      volumes:
+        - name: pg-data-mount
+          persistentVolumeClaim:
+            claimName: pg-data-pv-claim
