@@ -1,0 +1,9 @@
+DB_HOST=db
+DB_NAME=tutorial-dev
+POSTGRES_DB=tutorial-dev
+DB_USER=vinhle
+POSTGRES_USER=vinhle
+DB_PASS=password
+POSTGRES_PASSWORD=password
+
+
