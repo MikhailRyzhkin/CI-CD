@@ -41,7 +41,9 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
   ```
   Видим удачное тестовое разворачивание:
 
-  - удаляем тестовое разворачивание приложения:
+![test app django](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/fdd3b6f4-568d-4e72-b841-09f4b8ec85ee)
+
+  - Так как приложение работает, то удаляем тестовое разворачивание приложения в docker:
   ```
   cd /django-pg-docker-tutorial-clone && /opt/CI-CD/scripts/test_destroy_app.sh
   ```
