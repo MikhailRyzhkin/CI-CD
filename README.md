@@ -73,7 +73,10 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
 ![Variables](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/eb7b0769-5cc8-42a2-a5a3-14521f0cf3ab)
 
   - Описываем pipeline в стандартном .gitlab-ci.yml файле состоящий из двух стадий - сборки приложения из докерфайла и выкатка - деплой приложения. Запускаем пробно pipeline, который собирает
-    проект и пушит его как артефакт в докер хаб.
+    проект и пушит его как артефакт в докер хаб. Результат тестовой работы pipeline:
+  ![Результат pipeline](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/27ad0be3-60a1-4c51-a17f-6b218d48c427)
+
+  ![Результат pipeline-1](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/024405df-6d53-4f58-bd31-1d67f4014125)
 
   - Для разворачивания приложения в  кластера kubernetes пишем манифесты в каталоге "Kube-manifests".
   - Секретные данные кодируем и помещаем в манифест "credentials.yaml", а его в гитигнор.
