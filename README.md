@@ -50,13 +50,13 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
   ```
   cd /django-pg-docker-tutorial-clone && /opt/CI-CD/scripts/test_destroy_app.sh
   ```
-
   - В рамках подзадачи в роли Docker registry будем использовать Dockerhub. Логинимся в Dockerhub.
   ```
   docker login -u mikhailrizhkin1
   ```
   - Cоздаёми там репозиторий для хранения артифакта сборки. В нашем случае это: mikhailrizhkin1/diplom
-
+![docker-hub_diplom](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/485ff101-6c72-4ba2-84f1-f8f2bbead76b)
+  
   - В качестве CI/CD будем использовать Gitlab-CI
   - Создаём репозиторий в gitlab.com под проект: https://gitlab.com/Mikhail_Ryz/diplom_skillfactory_ci-cd
   - Создаём в нём гитлаб-раннер по пути Settings-CI/CD-Runners и отключаем шарэд раннеры
