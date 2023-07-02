@@ -52,8 +52,10 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
   ```
 
   - В рамках подзадачи в роли Docker registry будем использовать Dockerhub. Логинимся в Dockerhub.
-  Docker login и создаёми там репозиторий для хранения артифакта сборки. В нашем случае это:
-  mikhailrizhkin1/diplom
+  ```
+  docker login -u mikhailrizhkin1
+  ```
+  - Cоздаёми там репозиторий для хранения артифакта сборки. В нашем случае это: mikhailrizhkin1/diplom
 
   - В качестве CI/CD будем использовать Gitlab-CI
   - Создаём репозиторий в gitlab.com под проект: https://gitlab.com/Mikhail_Ryz/diplom_skillfactory_ci-cd
