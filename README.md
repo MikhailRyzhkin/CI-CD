@@ -60,17 +60,21 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
   - В качестве CI/CD будем использовать Gitlab-CI
   - Создаём репозиторий в gitlab.com под проект: https://gitlab.com/Mikhail_Ryz/diplom_skillfactory_ci-cd
   - Создаём в нём гитлаб-раннер по пути Settings-CI/CD-Runners и отключаем шарэд раннеры
+![Настройка Gitlab-Runner](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/391f0a31-d137-4834-88c6-a3379d081fa5)
 
   - На сервере srv, настраиваем Gitlab-Runner:
   ```
   gitlab-runner register --url https://gitlab.com --token <your_token>
   ```
   И если видим его зелённым цветом, то всё в порядке.
+![Настройка Gitlab-Runner-1](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/0cc6064d-5125-46e4-9f09-f94faaf1bec5)
 
   - Создаём нужные нам переменные для хранения приватных данных и другой информации по пути Settings-CI/CD-Variables:
+![Variables](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/eb7b0769-5cc8-42a2-a5a3-14521f0cf3ab)
 
-  - Описываем pipeline в стандартном .gitlab-ci.yml файле состоящий из двух стадий - сборки приложения из докерфайла и выкатка - деплой приложения. Пушим в него наш проект. Запускаем пробно pipeline.
-  
+  - Описываем pipeline в стандартном .gitlab-ci.yml файле состоящий из двух стадий - сборки приложения из докерфайла и выкатка - деплой приложения. Запускаем пробно pipeline, который собирает
+    проект и пушит его как артефакт в докер хаб.
+
   - Для разворачивания приложения в  кластера kubernetes пишем манифесты в каталоге "Kube-manifests".
   - Секретные данные кодируем и помещаем в манифест "credentials.yaml", а его в гитигнор.
   - Переходим в каталог с манифестами и деплоим приложение в ранее развёрнутый K8S кластер:
