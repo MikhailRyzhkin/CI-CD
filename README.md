@@ -37,13 +37,13 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
   ```
   - тестово разворачиваем приложение на ноде srv в docker для дебагинга:
   ```
-  cd .. && cd scripts && ./test_deploy_app.sh
+  cd /django-pg-docker-tutorial-clone && /opt/CI-CD/scripts/test_deploy_app.sh
   ```
   Видим удачное тестовое разворачивание:
 
   - удаляем тестовое разворачивание приложения:
   ```
-  cd .. && cd scripts && ./test_destroy_app.sh
+  cd /django-pg-docker-tutorial-clone && /opt/CI-CD/scripts/test_destroy_app.sh
   ```
 
   - В рамках подзадачи в роли Docker registry будем использовать Dockerhub. Логинимся в Dockerhub.
