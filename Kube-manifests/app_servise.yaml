@@ -6,7 +6,7 @@ metadata:
   labels:
     k8s-app: app-dpdt
     gitlab: diplom
-     app: app
+    app: app
   name: app
   namespace: diplom
 

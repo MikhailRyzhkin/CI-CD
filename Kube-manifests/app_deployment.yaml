@@ -58,8 +58,8 @@ spec:
                   name: credentials
                   key:  POSTGRES_PASSWORD
 
-            - name: SECRET_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: credentials
-                  key: SECRET_KEY
+#            - name: SECRET_KEY
+#              valueFrom:
+#                secretKeyRef:
+#                  name: credentials
+#                  key: SECRET_KEY
