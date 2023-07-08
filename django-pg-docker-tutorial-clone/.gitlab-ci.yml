@@ -1,0 +1,38 @@
+---
+stages:
+  - build
+  - deploy
+
+docker_build:
+  stage: build
+  rules:
+    - if: $CI_TAG =~ /^v\d+.\d+/
+      exists:
+        - Dockerfile
+    - when: on_success
+    - when: manual
+# Определяет список команд, которые должны выполняться перед опцией script и после получения артефактов.
+  before_script:
+     #- docker info
+     - docker login -u "$CI_REG_USER" -p "$CI_REG_PASSWORD"
+# Выполняются задания сценария, описанные ниже
+  script:
+    - cp $ENV_FILE .env
+    - env
+    - export
+    - tag=$CI_TAG
+    - echo "Running build with tag $tag"
+    - docker build -t mikhailrizhkin1/diplom:$tag .
+    - docker push mikhailrizhkin1/diplom:$tag
+
+app_deploy: 
+  stage: deploy
+  environment: production
+# Выполняются задания сценария, описанные ниже
+  script:
+    - env
+    - export
+    - tag=$CI_TAG
+    - echo "Deploy app django-pg-docker-tutorial build version $tag"
+    - export KUBECONFIG=/opt/.kube/config
+    - kubectl get pods -n $CI_NAMESPACE

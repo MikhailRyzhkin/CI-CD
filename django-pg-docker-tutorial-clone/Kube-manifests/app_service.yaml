@@ -1,0 +1,31 @@
+apiVersion: v1
+# Тип создаваемого ресурса
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    k8s-app: app-dpdt
+    gitlab: diplom
+    app: app
+  name: app
+  namespace: diplom
+
+spec:
+  ports:
+  - name: 80-3003
+    # Порт, на котором будет принимать соединения сервис
+    port: 80
+    protocol: TCP
+    # На какой порт в Pod’е перенаправлять трафик
+    targetPort: 3003
+  # Отбор Pod’a для сервиса по метке app
+  selector:
+    app: app
+  # Тип сервиса - балансировщик нагрузки
+  type: LoadBalancer
+  externalIPs:
+  # Указываем внешние IP адреса двух развёрнутых нод кластера k8s
+    - 158.160.75.53
+    - 158.160.18.130
+status:
+  loadBalancer: {}

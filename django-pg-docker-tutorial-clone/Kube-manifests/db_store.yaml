@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pg-data-pv
+  labels:
+    type: local
+    k8s-app: app-dpdt
+    gitlab: diplom
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 200M # Capacity for this persistent volume
+  accessModes:
+    - ReadWriteOnce
+  hostPath: # where pesistent volume is created on the kubernetes node (needs to be /data for minikube)
+    path: "/usr/pg_data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim #claim a portion of persistent volume
+metadata:
+  labels:
+    app: db
+  name: pg-data-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce # mount as read-write by a single node
+  resources:
+    requests:
+      storage: 200M # storage capacity consumed from the persistent volume
