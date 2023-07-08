@@ -79,15 +79,26 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
   ![Результат pipeline-1](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/024405df-6d53-4f58-bd31-1d67f4014125)
 
   - Для разворачивания приложения в  кластера kubernetes пишем манифесты в каталоге "Kube-manifests".
-  - Секретные данные кодируем и помещаем в манифест "credentials.yaml", а его в гитигнор.
+  - Секретные данные кодируем и помещаем в манифест "credentials.yaml":
+  ```
+  echo -n 'what_we_want_to_encode' | base64
+  ```
   - Для приложения создадим отдельный нэймспейс, куда будем его диплоить:
   ```
   kubectl create namespace diplom
   ```
   - Переходим в каталог с манифестами и деплоим приложение в ранее развёрнутый K8S кластер:
   ```
-  kubectl apply -f .
-  ``` 
+  kubectl apply -f . -n diplom 
+  ```
+![Deploy app-0](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/1de774a9-68bc-4110-9634-cc4774e77282)
+
+![Deploy app-1](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/75b7cd26-d7a1-4e30-9c91-2a2c3ee82d73)
+
+  - Для удаления приложения с кластера переходим в каталог с манифестами:
+  ```
+  kubectl delete -f . -n diplom 
+  ```
 
 
 Подзадача 2: Описываем приложение в Helm-чарт.
