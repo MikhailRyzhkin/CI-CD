@@ -91,9 +91,14 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
   ```
   kubectl apply -f . -n diplom 
   ```
-![Deploy app-0](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/1de774a9-68bc-4110-9634-cc4774e77282)
+![Deploy app-0](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/eb172890-d8ef-4289-bacd-be348ae88824)
 
 ![Deploy app-1](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/75b7cd26-d7a1-4e30-9c91-2a2c3ee82d73)
+
+![Deploy app-2](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/5fb7889b-28d7-4a6a-bbc9-9b2483fc043b)
+
+![Deploy app-3](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/de6ef047-d411-4f60-838e-6e83a9f58fb1)
+
 
   - Для удаления приложения с кластера переходим в каталог с манифестами:
   ```
