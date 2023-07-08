@@ -107,13 +107,19 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
 
 
 Подзадача 2: Описываем приложение в Helm-чарт.
-  - На базе нашего приложения м манифестов создаём Helm chart.
+  - На базе нашего приложения м манифестов создаём Helm chart. Переходим в папку с манифестами и формируем свой чарт:
+  ```
+  helm create app-dpdt
+  tree app-dpdt
+  ```
+![helm](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/6fac0e2b-a0c7-4ac0-8d6d-9f4ac175693e)
+
   - Развернём наш Helm chart в кластере k8s
   ```
   helm upgrade --install -n diplom app-dpdt && kubectl get pods -n diplom -o wide 
   ```
 
-Подзадача 3: Описываем стадию деплоя в Helm.
+Подзадача 3: Описываем стадию деплоя в Helm
   - Упаковываем Helm chart в архив:
   ```
   helm package chart 
