@@ -114,20 +114,15 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
   ```
 ![helm](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/6102a2ee-c28e-4b17-a029-0b630eb97326)
   - Редактируем созданную helm-заглушку. В первую очередь манифесты, которые берём с предыдущих шагов
+  - Развернём наш Helm chart в кластере k8s. Переходим в папку с c чартом и запускаем установку с учетом данных в credentials.yaml:
+  ```
+  helm install app-dpdt ./ --set service.type=NodePort -n diplom --values templates/credentials.yaml
+  ```
+  
+Подзадача 3: Описываем стадию деплоя в Helm
   - Архивируем созданный helm-chart из папки выше чарта:
   ```
    helm package ./app-dpdt
-  ```
- 
-  - Развернём наш Helm chart в кластере k8s
-  ```
-  helm install app-dpdt ./app-dpdt-1.1.tgz --set service.type=NodePort -n diplom
-  ```
-
-Подзадача 3: Описываем стадию деплоя в Helm
-  - Упаковываем Helm chart в архив:
-  ```
-  helm package chart 
   ```
   - Копируем и пушим созданный архив и сам чарт в репозиторий GitLab c CI/CD
   - Разрабатываем второй стейдж ci для развёртывания приложения в кластере k8s новой версии нсновании изменения тэга
