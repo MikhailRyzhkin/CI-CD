@@ -121,7 +121,7 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
  
   - Развернём наш Helm chart в кластере k8s
   ```
-  helm install app-dpdt app-dpdt-v1.1.tgz --set service.type=NodePort -n diplom
+  helm install app-dpdt ./app-dpdt-1.1.tgz --set service.type=NodePort -n diplom
   ```
 
 Подзадача 3: Описываем стадию деплоя в Helm
