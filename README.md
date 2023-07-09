@@ -112,11 +112,16 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
   helm create app-dpdt
   tree app-dpdt
   ```
-![helm](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/6fac0e2b-a0c7-4ac0-8d6d-9f4ac175693e)
-
+![helm](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/6102a2ee-c28e-4b17-a029-0b630eb97326)
+  - Редактируем созданную helm-заглушку. В первую очередь манифесты, которые берём с предыдущих шагов
+  - Архивируем созданный helm-chart из папки выше чарта:
+  ```
+   helm package ./app-dpdt
+  ```
+ 
   - Развернём наш Helm chart в кластере k8s
   ```
-  helm upgrade --install -n diplom app-dpdt && kubectl get pods -n diplom -o wide 
+  helm install app-dpdt app-dpdt-v1.1.tgz --set service.type=NodePort -n diplom
   ```
 
 Подзадача 3: Описываем стадию деплоя в Helm
