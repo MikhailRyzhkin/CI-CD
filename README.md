@@ -122,7 +122,7 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
   - Редактируем созданную helm-заглушку. В первую очередь манифесты, которые берём с предыдущих шагов
   - Развернём наш Helm chart в кластере k8s. Переходим в папку с c чартом и запускаем установку с учетом данных в credentials.yaml:
   ```
-  helm install app-dpdt ./ --set service.type=NodePort -n diplom --values templates/credentials.yaml
+  helm upgrade --install -n diplom --values templates/credentials.yaml --set service.type=NodePort app-dpdt .
   ```
   
 Подзадача 3: Описываем стадию деплоя в Helm
