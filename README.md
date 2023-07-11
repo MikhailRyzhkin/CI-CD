@@ -69,6 +69,12 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
   И если видим его зелённым цветом, то всё в порядке.
 ![Настройка Gitlab-Runner-1](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/0cc6064d-5125-46e4-9f09-f94faaf1bec5)
 
+  - Вносим пользователей в разрешение на docker
+  ```
+  usermod -aG docker ubuntu
+  usermod -aG docker root
+  usermod -aG docker gitlab-runner
+  ```
   - Создаём нужные нам переменные для хранения приватных данных и другой информации по пути Settings-CI/CD-Variables:
 ![Variables](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/eb7b0769-5cc8-42a2-a5a3-14521f0cf3ab)
 
