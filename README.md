@@ -133,6 +133,7 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
   - Копируем и пушим созданный архив и сам чарт в репозиторий GitLab c CI/CD
   - Разрабатываем второй стейдж ci для развёртывания приложения в кластере k8s новой версии нсновании изменения тэга
   То есть у нас тригер будет - тэг.
+
 ![helm-1](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/172715de-cc8d-443d-a43d-b1f4e7d04ace)
 
 ![Deploy app-4](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/dba3fd43-4fd3-48ef-aa79-bd5e02f3216b)
