@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+# Тип создаваемого ресурса - деплой приложения
+kind: Deployment
+metadata:
+  # Имя Deployment
+  name: app-dpdt
+  labels:
+    k8s-app: app-dpdt
+    gitlab: diplom
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  # Блок содержит информацию о создаваемых Deployment’ом Pod’ах
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+        - name: app-dpdt
+          # Образ, который будет использовать контейнер из докер хаба
+          image: mikhailrizhkin1/diplom:v1.1.
+          command: [ '/bin/sh' ]
+          args: ['-c', 'python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:3003']
+          ports:
+            - containerPort: 3003
+          # Раздел манифеста, где описываются переменные
+          env:
+            # Имя переменной в окружении — у нас имя хоста
+            - name: DB_HOST
+              # Блок-указание откуда берем данные
+              valueFrom:
+                # Тип источника данных - ключ-значение
+                secretKeyRef:
+                  # Имя секрета
+                  name: credentials
+                  # Значение секрета из указанного файла
+                  key: DB_HOST
+
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: credentials
+                  key: POSTGRES_DB
+
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: credentials
+                  key: POSTGRES_USER
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: credentials
+                  key:  POSTGRES_PASSWORD
+
+#            - name: SECRET_KEY
+#              valueFrom:
+#                secretKeyRef:
+#                  name: credentials
+#                  key: SECRET_KEY

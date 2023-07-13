@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+  labels:
+    k8s-app: app-dpdt
+    gitlab: diplom
+    app: db
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5432
+  selector:
+    app: db

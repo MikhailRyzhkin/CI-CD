@@ -1,0 +1,9 @@
+app-dpdt:
+  tag: v1.1
+
+persistentvolume:
+  capacity: 200M
+  path: /usr/pg_data
+
+persistentvolumeclaim:
+  capacity: 200M
