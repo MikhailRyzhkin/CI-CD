@@ -131,11 +131,27 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
    helm package ./app-dpdt
   ```
   - Копируем и пушим созданный архив и сам чарт в репозиторий GitLab c CI/CD
-  - Разрабатываем второй стейдж ci для развёртывания приложения в кластере k8s новой версии нсновании изменения тэга
+  - Разрабатываем второй стейдж ci для развёртывания приложения в кластере k8s новой версии на основании изменения тэга
   То есть у нас тригер будет - тэг.
 
-![helm-1](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/172715de-cc8d-443d-a43d-b1f4e7d04ace)
+![Helm-deploy-2](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/2bb8f713-4330-4f46-acb8-b2d9c285eeec)
 
-![Deploy app-4](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/dba3fd43-4fd3-48ef-aa79-bd5e02f3216b)
+![Helm-deploy-3](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/eb34faf5-1f3f-43d2-b559-fbc37dff0d29)
+
+![Helm-deploy](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/4b30cc55-2163-41a7-b5df-4c34b01cc7db)
+
+![Helm-deploy-1](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/f800619a-da0a-4771-9b7e-d54ab7c4bdbb)
+
+![pipeline](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/30afd39c-881a-4d83-9824-8a226ee37246)
+
+![pipeline-1](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/6d17715c-d79f-4179-bdfd-66bdfdc1ae47)
+
+Приложение доступно по любому из двух внешних IP (worker или master):
+http://158.160.75.53:30036/
+http://158.160.18.130:30036/
+
+
+
+
 
 
