@@ -147,8 +147,13 @@ Jenkins или GitHub Actions — кому что нравится. Рекоме
 ![pipeline-1](https://github.com/MikhailRyzhkin/CI-CD/assets/69116076/6d17715c-d79f-4179-bdfd-66bdfdc1ae47)
 
 Приложение доступно по любому из двух внешних IP (worker или master):
-http://158.160.75.53:30036/
-http://158.160.18.130:30036/
+  ```
+  http://158.160.75.53:30036/
+  ```
+или
+  ```
+  http://158.160.18.130:30036/
+  ```
 
 
 
